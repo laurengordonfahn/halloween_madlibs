@@ -53,11 +53,20 @@ def play_game():
 def show_madlib():
     """Generate madlib story"""
 
-    return render_template('game.html')
+    proper_noun = request.args.get("person")
+    color = request.args.get("favorite_color")
+    noun = request.args.get("noun")
+    adjective = request.args.get("adjective")
+    return render_template('madlib.html',person=proper_noun,
+                             favorite_color=color,
+                             noun=noun,
+                             adjective=adjective)
+def css_connection():
+    """add css to all html files"""
 
+    return render_template()
 
-    pass
-if __name__ == '__main__':
+if __name__ =='__main__':
     # debug=True gives us error messages in the browser and also "reloads" our web app
     # if we change the code.
     app.run(debug=True)
