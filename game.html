@@ -1,28 +1,48 @@
-<html>
-<head>
-    <title>Madlib Word Grab</title>
-</head>
-<body>
-<form action="/madlib">
-    Person:
-    <input type="text" name="person" value="propername">
-    Color:
-    <select name="favorite_color">
-    <option value="yellow">Yellow</option>
-    <option value="red">Red</option> 
-    <option value="Magenta">Magenta</option> 
-    <option value="kiwi">Kiwi</option>  
-    Noun:
-    <input type="checkbox" name="noun" value="chair">chair
-    <input type="checkbox" name="noun" value="shoe">shoe
-    <input type="checkbox" name="noun" value="canoe">canoe
-    <input type="checkbox" name="noun" value="glasses">glasses
-    Adjective:
-    <input type="text" name="adjective" value="descriptor">
-    <input type="submit">
+{% extends 'base.html' %}
 
+{% block title %} Ghostly Madlib Word Grab {% block title %}
 
+{% block content %}
+    <form action="/madlib", method="POST">
+        <label for="proper noun"> Proper Noun <span>(specific people and places)</span>: </label>
+        <input type="text" name="propernoun">
+        <input type="submit">
+    </form>
 
-</form>
-</body>
-</html>
+    <form action="/madlib", method="POST">
+        <label for="noun"> Noun <span>(object/thing)</span>: </label>
+        <input type="text" name="noun">
+        <input type="submit" name="noun_button"> 
+        <!-- DO NAME AND VALUE FOR EACH BUTTON TO SEE WHAT HAPPENS -->
+    </form>
+
+    <form action="/madlib", method="POST">
+        <label for="verb"> Verb <span>(action words)</span>: </label>
+        <input type="text" name="verb">
+        <input type="submit">
+    </form>
+
+    <form action="/madlib", method="POST">
+        <label for="adjectives"> Adjectives <span>(description)</span>: </label>
+        <input type="text" name="adjective">
+        <input type="submit">
+    </form>
+
+    <form action="/madlib", method="POST">
+        <label for="adverb"> Adverb <span>(descriptor word with -ly ending)</span>: </label>
+        <input type="text" name="adverb">
+        <input type="submit">
+    </form>
+
+    <form action="/madlib", method="POST">
+        <label for="exclimation"> Exclamation <span>(an expression of surpise ie wow)</span>: </label>
+        <input type="text" name="exclamation">
+        <input type="submit">
+    </form>
+
+    <form action="/madlib", method="POST">
+        <label for="finish generating words"> If you don't want to add any more words press "DONE" </label>
+        <input type="submt" value="DONE">
+    </form>
+        
+{% blockend %}
